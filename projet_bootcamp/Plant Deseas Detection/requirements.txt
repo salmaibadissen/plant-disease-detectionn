@@ -1,7 +1,8 @@
 flask
-tensorflow-cpu
+tensorflow
 numpy
 pillow
+gdown
 
 reportlab
 python-dotenv
