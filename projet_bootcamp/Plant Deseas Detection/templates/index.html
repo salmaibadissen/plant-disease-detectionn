@@ -1,0 +1,1286 @@
+<!-- index.html - Design Moderne et Professionnel -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 PlantDetect Pro - Diagnostic IA des Maladies des Plantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #6ee7b7;
+            --secondary: #3b82f6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.1);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* ==================== CONTAINER ==================== */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 2.5rem;
+        }
+
+        /* ==================== CARDS ==================== */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        /* ==================== UPLOAD SECTION ==================== */
+        .upload-section {
+            border: 2px dashed var(--primary);
+            border-radius: 12px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(110, 231, 183, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .upload-section:hover {
+            border-color: var(--primary-dark);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(110, 231, 183, 0.1) 100%);
+            transform: translateY(-2px);
+        }
+
+        .upload-section input[type="file"] {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .upload-text h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .upload-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== ALERTS ==================== */
+        .alert {
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideDown 0.3s ease;
+            border-left: 4px solid;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-error {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            color: #991b1b;
+            border-left-color: var(--danger);
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            color: #166534;
+            border-left-color: var(--success);
+        }
+
+        /* ==================== BUTTONS ==================== */
+        button, .btn {
+            padding: 0.85rem 1.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* ==================== RESULTS ==================== */
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 450px;
+        }
+
+        .result-image img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            object-fit: contain;
+        }
+
+        .image-status {
+            margin-top: 1rem;
+            text-align: center;
+            color: var(--success);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ==================== DIAGNOSIS CARD ==================== */
+        .diagnosis-card {
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .diagnosis-label {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .diagnosis-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .severity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .severity-high {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .severity-medium {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .severity-low {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        /* ==================== CONFIDENCE BAR ==================== */
+        .confidence-section {
+            margin: 1.5rem 0;
+            padding: 1.25rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .confidence-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .confidence-bar {
+            background: var(--bg-light);
+            height: 8px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            transition: width 0.6s ease;
+            border-radius: 20px;
+        }
+
+        /* ==================== INFO CARDS ==================== */
+        .info-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+            transform: translateX(4px);
+        }
+
+        .info-title {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .info-content {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== RECOMMENDATIONS ==================== */
+        .recommendation-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f1f5f9 100%);
+            padding: 1.75rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border: 1px solid #dcfce7;
+            border-left: 4px solid var(--success);
+        }
+
+        .recommendation-title {
+            color: var(--success);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .recommendation-list {
+            list-style: none;
+        }
+
+        .recommendation-list li {
+            padding: 0.65rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .recommendation-list li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* ==================== SIDEBAR ==================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .stats-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            box-shadow: var(--shadow);
+            border-color: rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        .history-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .history-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .history-item {
+            padding: 0.875rem;
+            margin-bottom: 0.75rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .history-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .history-disease {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .history-time {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== EMPTY STATE ==================== */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            opacity: 0.4;
+        }
+
+        .empty-state-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state-subtext {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==================== TABS ==================== */
+        .stats-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0;
+        }
+
+        .stats-tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            bottom: -2px;
+        }
+
+        .stats-tab-btn:hover {
+            color: var(--primary);
+        }
+
+        .stats-tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-column: 1;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button, .btn {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .upload-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        .spinner {
+            border: 3px solid rgba(16, 185, 129, 0.2);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(16, 185, 129, 0.4);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(16, 185, 129, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>PlantDetect Pro</span>
+            </div>
+            <ul class="nav-links">
+                <li><a class="active" onclick="switchTab('analyzer')"><i class="fas fa-microscope"></i> Analyseur</a></li>
+                <li><a onclick="switchTab('stats')"><i class="fas fa-chart-bar"></i> Statistiques</a></li>
+                <li><a onclick="switchTab('help')"><i class="fas fa-info-circle"></i> Guide</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <div class="main-content">
+            <!-- LEFT CONTENT -->
+            <div>
+                <!-- ANALYZER TAB -->
+                <div id="analyzer-tab">
+                    {% if error %}
+                    <div class="alert alert-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>{{ error }}</span>
+                    </div>
+                    {% endif %}
+
+                    <!-- UPLOAD CARD -->
+                    <div class="card">
+                        <h2 class="section-title">
+                            <i class="fas fa-image"></i> Analyseur d'Images
+                        </h2>
+
+                        <form method="POST" enctype="multipart/form-data" id="uploadForm">
+                            <div class="upload-section" onclick="document.getElementById('fileInput').click()">
+                                <div class="upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="upload-text">
+                                    <h3>Téléchargez une image</h3>
+                                    <p>Glissez-déposez ou cliquez pour sélectionner (PNG, JPG, JPEG, GIF, WebP)</p>
+                                </div>
+                                <input type="file" id="fileInput" name="file" accept="image/*" required>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary" id="submitBtn">
+                                    <i class="fas fa-search"></i> Analyser l'Image
+                                </button>
+                                {% if image_path %}
+                                <button type="reset" class="btn btn-secondary" onclick="location.reload()">
+                                    <i class="fas fa-redo"></i> Nouvelle Analyse
+                                </button>
+                                {% endif %}
+                            </div>
+
+                            <div id="fileName" style="margin-top: 1.25rem; color: var(--primary); font-weight: 600; display: none; text-align: center;">
+                                <i class="fas fa-check-circle"></i> <span id="fileNameText"></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- RESULTS CARD -->
+                    {% if image_path %}
+                    <div class="card" style="margin-top: 2rem;">
+                        <h2 class="section-title">
+                            <i class="fas fa-stethoscope"></i> Résultats d'Analyse
+                        </h2>
+
+                        <div class="result-grid">
+                            <div class="result-image">
+                                <img src="{{ image_path }}" alt="Plante analysée" style="display: block;">
+                                <div class="image-status">
+                                    <i class="fas fa-check-circle"></i> Image analysée avec succès
+                                </div>
+                            </div>
+
+                            <div>
+                                <!-- DIAGNOSIS CARD -->
+                                <div class="diagnosis-card">
+                                    <div class="diagnosis-label">Diagnostic</div>
+                                    <div class="diagnosis-name">{{ prediction }}</div>
+                                    <span class="severity-badge severity-{{ severity }}">
+                                        {% if severity == 'high' %}
+                                        <i class="fas fa-exclamation-triangle"></i> Sévère
+                                        {% elif severity == 'medium' %}
+                                        <i class="fas fa-exclamation-circle"></i> Modéré
+                                        {% else %}
+                                        <i class="fas fa-check-circle"></i> Sain
+                                        {% endif %}
+                                    </span>
+
+                                    <div class="confidence-section">
+                                        <div class="confidence-label">
+                                            <span>Confiance de Diagnostic</span>
+                                            <strong>{{ confidence }}%</strong>
+                                        </div>
+                                        <div class="confidence-bar">
+                                            <div class="confidence-fill" style="width: {{ confidence }}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- INFO SECTIONS -->
+                                <div class="info-sections">
+                                    <div class="info-card">
+                                        <div class="info-title">
+                                            <i class="fas fa-info-circle"></i> Description
+                                        </div>
+                                        <div class="info-content">{{ disease_info.description }}</div>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <div class="info-title">
+                                            <i class="fas fa-virus"></i> Causes
+                                        </div>
+                                        <div class="info-content">{{ disease_info.causes }}</div>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <div class="info-title">
+                                            <i class="fas fa-leaf"></i> Symptômes
+                                        </div>
+                                        <div class="info-content">{{ disease_info.symptoms }}</div>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <div class="info-title">
+                                            <i class="fas fa-prescription-bottle"></i> Traitement
+                                        </div>
+                                        <div class="info-content">{{ disease_info.management }}</div>
+                                    </div>
+                                </div>
+
+                                <!-- RECOMMENDATIONS -->
+                                <div class="recommendation-section">
+                                    <div class="recommendation-title">
+                                        <i class="fas fa-lightbulb"></i> Recommandations
+                                    </div>
+                                    <ul class="recommendation-list">
+                                        {% if severity == 'high' %}
+                                        <li>Intervention immédiate recommandée</li>
+                                        <li>Isoler la plante pour éviter la propagation</li>
+                                        <li>Consulter un spécialiste en phytopathologie</li>
+                                        {% elif severity == 'medium' %}
+                                        <li>Surveiller quotidiennement l'évolution</li>
+                                        <li>Appliquer les traitements curatifs</li>
+                                        <li>Vérifier les plantes avoisinantes</li>
+                                        {% else %}
+                                        <li>Maintenir une hygiène régulière</li>
+                                        <li>Continuer les soins normaux</li>
+                                        <li>Inspections hebdomadaires recommandées</li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="card" style="margin-top: 2rem;">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <div class="empty-state-text">Aucune analyse en cours</div>
+                            <div class="empty-state-subtext">Téléchargez une image pour démarrer l'analyse</div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- STATS TAB -->
+                <div id="stats-tab" style="display: none;">
+                    <div class="card">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-line"></i> Statistiques Globales
+                        </h2>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                            <div class="stats-card">
+                                <div class="stat-number" id="totalAnalyses">0</div>
+                                <div class="stat-label">Analyses</div>
+                            </div>
+                            
+                            <div class="stats-card">
+                                <div class="stat-number" id="avgConfidence">0%</div>
+                                <div class="stat-label">Confiance Moy.</div>
+                            </div>
+                            
+                            <div class="stats-card">
+                                <div class="stat-number" id="mostFrequentDisease" style="font-size: 1.3rem;">-</div>
+                                <div class="stat-label">Maladie Top</div>
+                            </div>
+                            
+                            <div class="stats-card">
+                                <div class="stat-number" id="lastAnalysisTime">-</div>
+                                <div class="stat-label">Dernière</div>
+                            </div>
+                        </div>
+
+                        <!-- TABS -->
+                        <div class="stats-tabs">
+                            <button onclick="switchStatsView('recent')" class="stats-tab-btn active">
+                                <i class="fas fa-clock"></i> Récentes
+                            </button>
+                            <button onclick="switchStatsView('all')" class="stats-tab-btn">
+                                <i class="fas fa-list"></i> Toutes
+                            </button>
+                            <button onclick="switchStatsView('distribution')" class="stats-tab-btn">
+                                <i class="fas fa-chart-pie"></i> Distribution
+                            </button>
+                        </div>
+
+                        <!-- RECENT VIEW -->
+                        <div id="recentView">
+                            <div id="recentAnalysesList" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon"><i class="fas fa-inbox"></i></div>
+                                    <div class="empty-state-text">Aucune analyse</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ALL VIEW -->
+                        <div id="allView" style="display: none;">
+                            <div id="allAnalysesList" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon"><i class="fas fa-inbox"></i></div>
+                                    <div class="empty-state-text">Aucune analyse</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DISTRIBUTION VIEW -->
+                        <div id="distributionView" style="display: none;">
+                            <div id="diseaseDistribution" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon"><i class="fas fa-chart-pie"></i></div>
+                                    <div class="empty-state-text">Aucune donnée</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <button onclick="clearStatistics()" class="btn btn-secondary">
+                                <i class="fas fa-trash"></i> Réinitialiser
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HELP TAB -->
+                <div id="help-tab" style="display: none;">
+                    <div class="card">
+                        <h2 class="section-title">
+                            <i class="fas fa-book"></i> Guide d'Utilisation
+                        </h2>
+                        <div style="color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem;">
+                            <div style="margin-bottom: 2rem;">
+                                <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-weight: 700; font-size: 1.05rem;">📸 Comment utiliser PlantDetect Pro</h3>
+                                <ol style="margin-left: 1.5rem; line-height: 2;">
+                                    <li>Prenez une photo claire de la plante affectée</li>
+                                    <li>Téléchargez l'image via le formulaire d'analyse</li>
+                                    <li>Attendez quelques secondes pour le diagnostic</li>
+                                    <li>Consultez les résultats détaillés</li>
+                                    <li>Suivez les recommandations de traitement</li>
+                                </ol>
+                            </div>
+
+                            <div>
+                                <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-weight: 700; font-size: 1.05rem;">💡 Conseils pour Meilleurs Résultats</h3>
+                                <ul style="margin-left: 1.5rem; line-height: 2;">
+                                    <li>✓ Utilisez une bonne lumière naturelle</li>
+                                    <li>✓ Nettoyez la lentille de la caméra</li>
+                                    <li>✓ Zoomez sur la partie affectée</li>
+                                    <li>✓ Évitez les ombres directes</li>
+                                    <li>✓ Prendre plusieurs angles si possible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+                <!-- CONFIDENCE CARD -->
+                <div class="stats-card">
+                    <div class="stat-number">{% if image_path %}{{ confidence }}%{% else %}—{% endif %}</div>
+                    <div class="stat-label">Confiance Actuelle</div>
+                </div>
+
+                <!-- STATUS CARD -->
+                <div class="stats-card">
+                    <div style="padding-top: 0.5rem;">
+                        <div style="margin-bottom: 1.25rem;">
+                            <div class="stat-label" style="margin-bottom: 0.5rem;">État</div>
+                            <div style="color: var(--text-primary); font-weight: 700; font-size: 0.95rem;">
+                                {% if image_path %}
+                                    {% if severity == 'high' %}
+                                    <span style="color: #ef4444;"><i class="fas fa-alert-circle"></i> Sévère</span>
+                                    {% elif severity == 'medium' %}
+                                    <span style="color: #f59e0b;"><i class="fas fa-exclamation"></i> Modéré</span>
+                                    {% else %}
+                                    <span style="color: var(--primary);"><i class="fas fa-check"></i> Sain</span>
+                                    {% endif %}
+                                {% else %}
+                                <span style="color: var(--text-secondary);">En attente</span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="stat-label" style="margin-bottom: 0.5rem;">Statut</div>
+                            <div style="color: var(--text-primary); font-weight: 700; font-size: 0.95rem;">
+                                {% if image_path %}
+                                <i class="fas fa-check-circle" style="color: var(--primary);"></i> Analysée
+                                {% else %}
+                                <i class="fas fa-clock" style="color: var(--text-secondary);"></i> Idle
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HISTORY CARD -->
+                <div class="history-card">
+                    <div class="history-title">
+                        <i class="fas fa-history"></i> Historique Récent
+                    </div>
+                    <div id="sidebarHistory">
+                        <div style="text-align: center; color: var(--text-secondary); padding: 1.5rem 0; font-size: 0.85rem;">
+                            Aucune analyse
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INFO CARD -->
+                <div class="stats-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(110, 231, 183, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <div style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-leaf"></i> À Propos
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                        PlantDetect Pro utilise la détection par intelligence artificielle pour identifier les maladies des plantes avec une grande précision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p><i class="fas fa-leaf" style="color: var(--primary); margin-right: 0.5rem;"></i> <strong>PlantDetect Pro v2.0</strong> | Powered by Deep Learning AI</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 | Pour une meilleure utilisation, consultez un expert en phytopathologie</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('[id$="-tab"]');
+            tabs.forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            
+            document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+            event.target.closest('a').classList.add('active');
+            
+            if (tabName === 'stats') loadStatistics();
+        }
+
+        function switchStatsView(viewName) {
+            document.getElementById('recentView').style.display = 'none';
+            document.getElementById('allView').style.display = 'none';
+            document.getElementById('distributionView').style.display = 'none';
+
+            if (viewName === 'recent') document.getElementById('recentView').style.display = 'block';
+            else if (viewName === 'all') document.getElementById('allView').style.display = 'block';
+            else if (viewName === 'distribution') document.getElementById('distributionView').style.display = 'block';
+
+            document.querySelectorAll('.stats-tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('button').classList.add('active');
+        }
+
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const uploadSection = document.querySelector('.upload-section');
+        const submitBtn = document.getElementById('submitBtn');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                document.getElementById('fileNameText').textContent = this.files[0].name;
+                fileName.style.display = 'block';
+            }
+        });
+
+        uploadSection.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadSection.style.transform = 'scale(1.02)';
+            uploadSection.style.borderColor = 'var(--primary-dark)';
+        });
+
+        uploadSection.addEventListener('dragleave', () => {
+            uploadSection.style.transform = 'scale(1)';
+            uploadSection.style.borderColor = 'var(--primary)';
+        });
+
+        uploadSection.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadSection.style.transform = 'scale(1)';
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                fileInput.files = e.dataTransfer.files;
+                document.getElementById('fileNameText').textContent = e.dataTransfer.files[0].name;
+                fileName.style.display = 'block';
+            }
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"></span> Analyse en cours...';
+        });
+
+        // ==================== STATISTICS ====================
+        function saveAnalysisToHistory(disease, confidence, imagePath) {
+            const analyses = JSON.parse(localStorage.getItem('plant_analyses') || '[]');
+            analyses.unshift({
+                disease: disease,
+                confidence: parseFloat(confidence),
+                imagePath: imagePath,
+                date: new Date().toLocaleString('fr-FR'),
+                timestamp: new Date().getTime()
+            });
+            localStorage.setItem('plant_analyses', JSON.stringify(analyses));
+        }
+
+        function loadStatistics() {
+            const analyses = JSON.parse(localStorage.getItem('plant_analyses') || '[]');
+            
+            if (analyses.length === 0) {
+                document.getElementById('recentAnalysesList').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fas fa-inbox"></i></div><div class="empty-state-text">Aucune analyse</div></div>';
+                document.getElementById('allAnalysesList').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fas fa-inbox"></i></div><div class="empty-state-text">Aucune analyse</div></div>';
+                return;
+            }
+
+            const totalAnalyses = analyses.length;
+            const avgConfidence = (analyses.reduce((sum, a) => sum + a.confidence, 0) / totalAnalyses).toFixed(1);
+            
+            const diseaseCount = {};
+            analyses.forEach(a => {
+                diseaseCount[a.disease] = (diseaseCount[a.disease] || 0) + 1;
+            });
+            const mostFrequent = Object.entries(diseaseCount).sort((a, b) => b[1] - a[1])[0];
+
+            document.getElementById('totalAnalyses').textContent = totalAnalyses;
+            document.getElementById('avgConfidence').textContent = avgConfidence + '%';
+            document.getElementById('mostFrequentDisease').textContent = mostFrequent[0];
+            document.getElementById('lastAnalysisTime').textContent = 'Auj.';
+
+            // RECENT
+            let recentHTML = '';
+            analyses.slice(0, 10).forEach((a) => {
+                const color = a.confidence >= 80 ? '#ef4444' : a.confidence >= 60 ? '#f59e0b' : 'var(--primary)';
+                recentHTML += `
+                    <div class="history-item" style="border-left-color: ${color};">
+                        <div class="history-disease">${a.disease}</div>
+                        <div class="history-time"><i class="fas fa-calendar"></i> ${a.date}</div>
+                        <div style="font-size: 0.75rem; color: ${color}; margin-top: 0.25rem; font-weight: 700;">${a.confidence}%</div>
+                    </div>
+                `;
+            });
+            document.getElementById('recentAnalysesList').innerHTML = recentHTML;
+
+            // ALL
+            let allHTML = '';
+            analyses.forEach((a, i) => {
+                const color = a.confidence >= 80 ? '#ef4444' : a.confidence >= 60 ? '#f59e0b' : 'var(--primary)';
+                allHTML += `
+                    <div class="history-item" style="border-left-color: ${color};">
+                        <div class="history-disease">${i + 1}. ${a.disease}</div>
+                        <div class="history-time"><i class="fas fa-calendar"></i> ${a.date}</div>
+                        <div style="font-size: 0.75rem; color: ${color}; margin-top: 0.25rem; font-weight: 700;">${a.confidence}%</div>
+                    </div>
+                `;
+            });
+            document.getElementById('allAnalysesList').innerHTML = allHTML;
+
+            // DISTRIBUTION
+            let distHTML = '';
+            Object.entries(diseaseCount).sort((a, b) => b[1] - a[1]).forEach(([disease, count]) => {
+                const percentage = ((count / totalAnalyses) * 100).toFixed(1);
+                distHTML += `
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; align-items: center; font-size: 0.9rem;">
+                            <span style="font-weight: 700; color: var(--text-primary);">${disease}</span>
+                            <span style="background: var(--bg-light); padding: 0.25rem 0.75rem; border-radius: 6px; color: var(--text-secondary); font-weight: 600;">${count} (${percentage}%)</span>
+                        </div>
+                        <div style="background: var(--bg-light); height: 8px; border-radius: 20px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%); height: 100%; width: ${percentage}%; border-radius: 20px;"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('diseaseDistribution').innerHTML = distHTML;
+        }
+
+        function clearStatistics() {
+            if (confirm('Réinitialiser toutes les statistiques ?')) {
+                localStorage.removeItem('plant_analyses');
+                loadStatistics();
+            }
+        }
+
+        if (document.querySelector('.diagnosis-name')) {
+            saveAnalysisToHistory(
+                document.querySelector('.diagnosis-name').textContent.trim(),
+                '{{ confidence }}',
+                '{{ image_path }}'
+            );
+        }
+
+        function loadHistoryInSidebar() {
+            const analyses = JSON.parse(localStorage.getItem('plant_analyses') || '[]');
+            if (analyses.length > 0 && !document.querySelector('.diagnosis-name')) {
+                let html = '';
+                analyses.slice(0, 5).forEach((a) => {
+                    html += `
+                        <div class="history-item">
+                            <div class="history-disease">${a.disease}</div>
+                            <div class="history-time"><i class="fas fa-calendar"></i> ${a.date}</div>
+                        </div>
+                    `;
+                });
+                document.getElementById('sidebarHistory').innerHTML = html;
+            }
+        }
+
+        loadHistoryInSidebar();
+    </script>
+</body>
+
+</html>
